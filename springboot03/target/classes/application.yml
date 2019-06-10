@@ -1,0 +1,23 @@
+##端口号设置
+server:
+  port: 8001
+  ##访问项目根路径设置
+  servlet:
+    context-path: /boot
+spring:
+  ##数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: pass
+    driver-class-name: com.mysql.jdbc.Driver
+##mybatis配置
+mybatis:
+  type-aliases-package: com.loafer.entity
+  mapper-locations: classpath:mapper/*.xml
+########################################################
+###配置打印sql
+########################################################
+logging:
+  level:
+    com.loafer.mapper: DEBUG
