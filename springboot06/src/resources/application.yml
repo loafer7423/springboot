@@ -1,0 +1,58 @@
+##端口号设置
+server:
+  port: 8001
+  ##访问项目根路径设置
+  servlet:
+    context-path: /boot
+#spring:
+#  ##数据源配置
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+#    username: root
+#    password: pass
+#    driver-class-name: com.mysql.jdbc.Driver
+# 更多数据源
+custom:
+  datasource:
+    defaultname: default #当前的是默认数据源
+    names: ds1,ds2  #自定义的多数据源名称，与下面的ds1，ds2对应
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: pass
+    ds1:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+      username: root
+      password: pass
+    ds2:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test2?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+      username: root
+      password: pass
+    filters: stat
+    maxActive: 100
+    initialSize: 1
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 100
+
+##mybatis配置
+mybatis:
+  type-aliases-package: com.loafer.entity
+##配置打印sql
+logging:
+  level:
+    com.loafer.mapper: DEBUG
+##pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
